@@ -32,5 +32,6 @@ jobs:
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
       - run: |
+          whoami
           ls -l /opt/hostedtoolcache
       
