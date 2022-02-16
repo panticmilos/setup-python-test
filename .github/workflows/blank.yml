@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-self:
     # The type of runner that the job will run on
     runs-on: self-hosted
 
@@ -37,3 +37,23 @@ jobs:
           whoami
           ls -l /opt/hostedtoolcache
       
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Show env
+        run: set
+      - name: Setup python
+        uses: akv-demo/setup-python@v2.3.7
+        with:
+          python-version: 3.7.7
+          architecture: x64
+        env:
+          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+      - run: |
+          whoami
+          ls -l /opt/hostedtoolcache
