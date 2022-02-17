@@ -27,12 +27,12 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python
-        uses: akv-demo/setup-python@v2.3.7
+        uses: akv-demo/setup-python@v2-dev
         with:
           python-version: 3.7.7
           architecture: x64
         env:
-          xAGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
       - run: |
           whoami
           ls -l /opt/hostedtoolcache
@@ -49,7 +49,7 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python
-        uses: akv-demo/setup-python@v2.3.7
+        uses: akv-demo/setup-python@v2-dev
         with:
           python-version: 3.7.7
           architecture: x64
