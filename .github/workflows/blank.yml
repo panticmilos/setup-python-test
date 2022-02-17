@@ -27,7 +27,7 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python
-        uses: akv-demo/setup-python@v2.21-dev
+        uses: akv-demo/setup-python@v2.22-dev
         with:
           python-version: 3.7.7
           architecture: x64
