@@ -15,28 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  selfhosted-agent_toolsdirectory:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.0.2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-  selfhosted-fixed:
+  check-output:
     # The type of runner that the job will run on
     runs-on: self-hosted
 
@@ -47,67 +26,9 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.0.2
+        uses: akv-demo/setup-python@v-sedoli-v1.0.3
         with:
-          python-version: 3.7.7
-          architecture: x64
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version          
-  selfhosted-nofix:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-  hosted-agent_toolsdirectory:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.0.2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-  hosted-fix:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.0.2
-        with:
-          python-version: 3.7.7
+          python-version: pypy-3.7
           architecture: x64
       - run: |
           whoami
