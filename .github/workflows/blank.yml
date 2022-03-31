@@ -25,13 +25,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Show env
         run: set
-      - name: Setup python
-        uses: akv-platform/setup-python@v-sedoli-v1.0.3
+      - name: python
+        uses: akv-platform/setup-python@v-sedoli-v1.0.4
         with:
           python-version: pypy-3.7
           architecture: x64
       - run: |
           whoami
           ls -l /opt/hostedtoolcache
-          python --version            
+          python --version
+          echo ${{ steps.python.outputs.python-version }}
        
