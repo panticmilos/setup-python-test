@@ -34,5 +34,7 @@ jobs:
           whoami
           ls -l /opt/hostedtoolcache
           python --version
-          echo ${{ steps.python.outputs.python-version }}
+          echo "py ver=${pyver}"
+        env:
+          pyver: ${{ steps.python.outputs.python-version }}
        
