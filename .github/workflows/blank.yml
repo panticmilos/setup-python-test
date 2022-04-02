@@ -26,6 +26,7 @@ jobs:
       - name: Show env
         run: set
       - name: python
+        id: python
         uses: akv-platform/setup-python@v-sedoli-v1.0.5
         with:
           python-version: pypy-3.7
@@ -35,6 +36,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
           echo "py ver=${pyver}"
+          echo "py ver2=${{ steps.python.outputs.python-version }}"
         env:
           pyver: ${{ steps.python.outputs.python-version }}
        
