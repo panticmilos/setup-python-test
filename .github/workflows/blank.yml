@@ -27,7 +27,7 @@ jobs:
         run: set
       - name: python
         id: python
-        uses: akv-platform/setup-python@v-sedoli-v1.0.5
+        uses: akv-platform/setup-python@v-sedoli-v1.0.6
         with:
           python-version: pypy-3.7
           architecture: x64
