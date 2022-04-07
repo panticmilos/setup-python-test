@@ -19,7 +19,7 @@ jobs:
   selfhosted-agent_toolsdirectory:
     # The type of runner that the job will run on
     runs-on: self-hosted
-
+    if: ${{ false }}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -39,6 +39,7 @@ jobs:
   selfhosted-fixed:
     # The type of runner that the job will run on
     runs-on: self-hosted
+    if: ${{ false }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -58,6 +59,7 @@ jobs:
   selfhosted-nofix:
     # The type of runner that the job will run on
     runs-on: self-hosted
+    if: ${{ false }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -75,7 +77,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
 
-  selfhosted-nofix-runner_tool_cache:
+  selfhosted-nofix-runner_tool_cache-def:
     # The type of runner that the job will run on
     runs-on: self-hosted
 
@@ -90,6 +92,30 @@ jobs:
         with:
           python-version: 3.7.7
           architecture: x64
+        env:
+          RUNNER_TOOL_CACHE: /opt/hostedtoolcache
+      - run: |
+          whoami
+          ls -l /opt/hostedtoolcache
+          python --version
+          
+  selfhosted-nofix-runner_tool_cache-nondef:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Show env
+        run: set
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7.7
+          architecture: x64
+        env:
+          RUNNER_TOOL_CACHE: /tmp/hostedtoolcache
       - run: |
           whoami
           ls -l /opt/hostedtoolcache
@@ -98,6 +124,7 @@ jobs:
   hosted-agent_toolsdirectory:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    if: ${{ false }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -118,6 +145,7 @@ jobs:
   hosted-fix:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    if: ${{ false }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
