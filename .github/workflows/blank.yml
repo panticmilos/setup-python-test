@@ -25,7 +25,7 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python 3.7.7
-        uses: akv-demo/setup-python@v-sedoli-v1.1.0
+        uses: akv-platform/setup-python@v-sedoli-v1.1.0
         with:
           python-version: 3.7.7
           architecture: x64
@@ -40,7 +40,7 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python 3.7.7
-        uses: akv-demo/setup-python@v-sedoli-v1.1.0
+        uses: akv-platform/setup-python@v-sedoli-v1.1.0
         with:
           python-version:
       - run: |
