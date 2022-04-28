@@ -37,7 +37,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
           which python
-          test `which python` == /opt/hostedtoolcache/*
+          [[ `which python` == /opt/hostedtoolcache/* ]]
           
   selfhosted-runner_tool_cache:
     # The type of runner that the job will run on
@@ -60,7 +60,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
           which python
-          test `which python` == /opt/hostedtoolcache/*
+          [[ `which python` == /opt/hostedtoolcache/* ]]
           
   selfhosted:
     # The type of runner that the job will run on
@@ -81,7 +81,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
           which python
-          test `which python` == /opt/hostedtoolcache/*
+          [[ `which python` == /opt/hostedtoolcache/* ]]
           
   # This workflow contains a single job called "build"
   hosted-agent_toolsdirectory:
@@ -105,7 +105,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
           which python
-          test `which python` == /opt/hostedtoolcache/*
+          [[ `which python` == /opt/hostedtoolcache/* ]]
           
   hosted-runner_tool_cache:
     # The type of runner that the job will run on
@@ -128,7 +128,7 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version
           which python
-          test `which python` == /opt/hostedtoolcache/*
+          [[ `which python` == /opt/hostedtoolcache/* ]]
           
   hosted:
     # The type of runner that the job will run on
@@ -149,4 +149,4 @@ jobs:
           ls -l /opt/hostedtoolcache
           python --version     
           which python
-          test `which python` == /opt/hostedtoolcache/*
+          [[ `which python` == /opt/hostedtoolcache/* ]]
