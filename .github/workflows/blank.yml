@@ -34,33 +34,11 @@ jobs:
           AGENT_TOOLSDIRECTORY: /tmp/hostedtoolcache
       - run: |
           whoami
-          ls -l /opt/hostedtoolcache
+          ls -l /tmp/hostedtoolcache
           python --version
           which python
           [[ `which python` == /tmp/hostedtoolcache/* ]]
           
-  selfhosted-runner_tool_cache_tmp:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    if: ${{ true }}
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-platform/setup-python@v-sedoli-v2.0.0
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          RUNNER_TOOL_CACHE: /tmp/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-          which python
-          [[ `which python` == /tmp/hostedtoolcache/* ]]
   # This workflow contains a single job called "build"
   selfhosted-agent_toolsdirectory:
     # The type of runner that the job will run on
@@ -78,29 +56,6 @@ jobs:
           architecture: x64
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-          which python
-          [[ `which python` == /opt/hostedtoolcache/* ]]
-          
-  selfhosted-runner_tool_cache:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    if: ${{ true }}
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-platform/setup-python@v-sedoli-v2.0.0
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          RUNNER_TOOL_CACHE: /opt/hostedtoolcache
       - run: |
           whoami
           ls -l /opt/hostedtoolcache
@@ -153,29 +108,6 @@ jobs:
           which python
           [[ `which python` == /opt/hostedtoolcache/* ]]
           
-  hosted-runner_tool_cache:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    if: ${{ true }}
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-platform/setup-python@v-sedoli-v2.0.0
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          RUNNER_TOOL_CACHE: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-          which python
-          [[ `which python` == /opt/hostedtoolcache/* ]]
-          
   hosted:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -216,30 +148,7 @@ jobs:
           AGENT_TOOLSDIRECTORY: /tmp/hostedtoolcache
       - run: |
           whoami
-          ls -l /opt/hostedtoolcache
+          ls -l /tmp/hostedtoolcache
           python --version
           which python
-          [[ `which python` == /tmp/hostedtoolcache/* ]]
-          
-  hosted-runner_tool_cache_tmp:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    if: ${{ true }}
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-platform/setup-python@v-sedoli-v2.0.0
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          RUNNER_TOOL_CACHE: /tmp/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-          which python
-          [[ `which python` == /tmp/hostedtoolcache/* ]]          
+          [[ `which python` == /tmp/hostedtoolcache/* ]]      
