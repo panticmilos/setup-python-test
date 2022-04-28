@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   version-set:
     # The type of runner that the job will run on
-    if: ${{ false }}
+    if: ${{ true }}
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -26,10 +26,7 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python 3.7.7
-        uses: akv-platform/setup-python@v-sedoli-v1.1.0
-        with:
-          python-version: 3.7.7
-          architecture: x64
+        uses: actions/setup-python@v2
       - run: |
           python --version
   version-notset:
