@@ -23,8 +23,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      - run: |     
+          rm -rf /tmp/hostedtoolcache/*
+          rm -rf /opt/hostedtoolcache/*
       - name: Setup python
         uses: akv-platform/setup-python@v-sedoli-v2.0.0
         with:
@@ -47,8 +48,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      - run: |     
+          rm -rf /tmp/hostedtoolcache/*
+          rm -rf /opt/hostedtoolcache/*
       - name: Setup python
         uses: akv-platform/setup-python@v-sedoli-v2.0.0
         with:
@@ -70,8 +72,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      - run: |     
+          rm -rf /tmp/hostedtoolcache/*
+          rm -rf /opt/hostedtoolcache/*
       - name: Setup python
         uses: akv-platform/setup-python@v-sedoli-v2.0.0
         with:
@@ -92,8 +95,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      - run: |     
+          rm -rf /tmp/hostedtoolcache/*
+          rm -rf /opt/hostedtoolcache/*
       - name: Setup python
         uses: akv-platform/setup-python@v-sedoli-v2.0.0
         with:
@@ -115,8 +119,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      - run: |     
+          rm -rf /tmp/hostedtoolcache/*
+          rm -rf /opt/hostedtoolcache/*
       - name: Setup python
         uses: akv-platform/setup-python@v-sedoli-v2.0.0
         with:
@@ -137,8 +142,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      - run: |     
+          rm -rf /tmp/hostedtoolcache/*
+          rm -rf /opt/hostedtoolcache/*
       - name: Setup python
         uses: akv-platform/setup-python@v-sedoli-v2.0.0
         with:
