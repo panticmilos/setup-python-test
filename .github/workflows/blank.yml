@@ -41,7 +41,7 @@ jobs:
       - name: Show env
         run: set
       - name: Setup python no version
-        uses: akv-platform/setup-python@v-sedoli-v1.1.0
+        uses: actions/setup-python
         with:
           python-version:
       - run: |
