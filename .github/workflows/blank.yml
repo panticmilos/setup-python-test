@@ -36,6 +36,7 @@ jobs:
           whoami
           ls -l /opt/hostedtoolcache
           python --version
+          which python
           
   selfhosted-runner_tool_cache:
     # The type of runner that the job will run on
@@ -57,6 +58,7 @@ jobs:
           whoami
           ls -l /opt/hostedtoolcache
           python --version
+          which python
           
   selfhosted:
     # The type of runner that the job will run on
@@ -75,7 +77,9 @@ jobs:
       - run: |
           whoami
           ls -l /opt/hostedtoolcache
-          python --version  
+          python --version
+          which python
+          
   # This workflow contains a single job called "build"
   hosted-agent_toolsdirectory:
     # The type of runner that the job will run on
@@ -97,6 +101,7 @@ jobs:
           whoami
           ls -l /opt/hostedtoolcache
           python --version
+          which python
           
   hosted-runner_tool_cache:
     # The type of runner that the job will run on
@@ -118,6 +123,7 @@ jobs:
           whoami
           ls -l /opt/hostedtoolcache
           python --version
+          which python
           
   hosted:
     # The type of runner that the job will run on
@@ -136,4 +142,5 @@ jobs:
       - run: |
           whoami
           ls -l /opt/hostedtoolcache
-          python --version                    
+          python --version     
+          which python
