@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ pkg-config ]
   pull_request:
-    branches: [ main ]
+    branches: [ pkg-config ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -18,17 +18,14 @@ jobs:
   # This workflow contains a single job called "build"
   selfhosted-agent_toolsdirectory:
     # The type of runner that the job will run on
-    runs-on: self-hosted
-    if: ${{ false }}
+    runs-on: ubuntu-18.04
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Show env
-        run: set
+      
       - name: Setup python
         uses: akv-demo/setup-python@v-sedoli-v1.0.2
         with:
-          python-version: 3.7.7
+          python-version: 3.8.12
           architecture: x64
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
@@ -52,114 +49,11 @@ jobs:
         with:
           python-version: 3.7.7
           architecture: x64
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version          
-  selfhosted-nofix:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    if: ${{ false }}
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-
-  selfhosted-nofix-runner_tool_cache-def:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          RUNNER_TOOL_CACHE: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-          
-  selfhosted-nofix-runner_tool_cache-nondef:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          RUNNER_TOOL_CACHE: /tmp/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-          
-  hosted-agent_toolsdirectory:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    if: ${{ false }}
-
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.0.2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-        env:
-          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-  hosted-fix:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    if: ${{ false }}
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.0.2
-        with:
-          python-version: 3.7.7
-          architecture: x64
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version            
-       
+      - name: Show Python context
+        run: |
+          echo "--------PIP LIST"
+          python3 -m pip list
+          echo "--------PKG-CONFIG LIST"
+          pkg-config --list-all
+          echo "--------DPKG LIST"
+          dpkg -l "python*"
