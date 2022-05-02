@@ -27,28 +27,6 @@ jobs:
         with:
           python-version: 3.8.12
           architecture: x64
-        env:
-          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
-      - run: |
-          whoami
-          ls -l /opt/hostedtoolcache
-          python --version
-  selfhosted-fixed:
-    # The type of runner that the job will run on
-    runs-on: self-hosted
-    if: ${{ false }}
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - name: Show env
-        run: set
-      - name: Setup python
-        uses: akv-demo/setup-python@v-sedoli-v1.1.0
-        with:
-          python-version: 3.7.7
-          architecture: x64
       - name: Show Python context
         run: |
           echo "--------PIP LIST"
