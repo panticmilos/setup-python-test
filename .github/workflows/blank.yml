@@ -27,21 +27,8 @@ jobs:
         with:
           python-version: 3.8.12
           architecture: x64
-      - name: Install Python dependencies
-        run: |
-          python3 -m pip install --upgrade pip 
-          python3 -m pip install --upgrade setuptools wheel
-          python3 -m pip install scons flake8 scipy matplotlib DyMat pyswarm cma deap scoop pytest openpyxl distro colorama tensorflow==${{ env.TFVER }} pyDOE
-          # FIXME move to pypi version of solsticepy ASAP...
-          python3 -m pip install git+https://github.com/anustg/solstice-scripts.git@dev
-          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          python3 -c "import DyMat; print(DyMat.__version__)"
         
       - name: Show Python context
         run: |
-          echo "--------PIP LIST"
-          python3 -m pip list
-          echo "--------PKG-CONFIG LIST"
           pkg-config --list-all
-          echo "--------DPKG LIST"
-          dpkg -l "python*"
+
