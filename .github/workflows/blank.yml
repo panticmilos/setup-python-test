@@ -34,7 +34,8 @@ jobs:
           
       - name: Show Python context
         run: |
-          ls -l /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig
-          cat /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig/python3.pc
+          #ls -l /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig
+          #cat /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig/python3.pc
+          pkg-config --debug 
           # pkg-config --list-all
 
