@@ -27,7 +27,11 @@ jobs:
         with:
           python-version: 3.8.12
           architecture: x64
-        
+          
+      - name: Env
+        run: |
+          set
+          
       - name: Show Python context
         run: |
           ls -l /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig
