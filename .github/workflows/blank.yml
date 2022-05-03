@@ -28,6 +28,9 @@ jobs:
           python-version: 3.8.12
           architecture: x64
           
+      - name: Set Env
+        run: echo "PKG_CONFIG_PATH=$(pythonLocation)/lib/pkgconfig" >> $GITHUB_ENV
+ 
       - name: Env
         run: |
           set
