@@ -36,8 +36,9 @@ jobs:
         run: |
           which pkg-config
           find /opt/hostedtoolcache/Python/3.8.12/x64  -name pkg-config
+          echo "^^^"
           #ls -l /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig
           #cat /opt/hostedtoolcache/Python/3.8.12/x64/lib/pkgconfig/python3.pc
-          pkg-config --debug 
+          #pkg-config --debug 
           # pkg-config --list-all
 
