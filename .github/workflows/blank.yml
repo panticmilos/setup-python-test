@@ -37,7 +37,9 @@ jobs:
           #find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '*.so'
           #find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '*.a'
           find /usr/local/homebrew -name '*.so'
+          find /usr/local/Homebrew -name '*.so'
           find /usr/local/homebrew -name '*.a'
+          find /usr/local/Homebrew -name '*.a'
       - name: Run tk script (closes itself after 5 seconds)
         run: |
           export LD_LIBRARY_PATH=/Users/runner/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/lib-dynload
