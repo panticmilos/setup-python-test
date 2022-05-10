@@ -36,6 +36,8 @@ jobs:
           find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '*.so'
       - name: Run tk script (closes itself after 5 seconds)
         run: |
+          export LD_LIBRARY_PATH=/Users/runner/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/lib-dynload
+          export RUN_LD_PATH=/Users/runner/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/lib-dynload
           python -c 'import os;print(os.getenv("LD_LIBRARY_PATH"))'
           python -c 'import os;print(os.getenv("RUN_LD_PATH"))'
           python -c 'import os;print(os.getenv("PYTHONHOME"))'
