@@ -34,10 +34,7 @@ jobs:
       - name: find
         run:  |
           find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '*.so'
-      - name: strace
-        run:  |
-          apt-get update
-          apt-get install strace
+          find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '*.a'
       - name: Run tk script (closes itself after 5 seconds)
         run: |
           export LD_LIBRARY_PATH=/Users/runner/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/lib-dynload
@@ -46,4 +43,4 @@ jobs:
           python -c 'import os;print(os.getenv("RUN_LD_PATH"))'
           python -c 'import os;print(os.getenv("PYTHONHOME"))'
           python -c 'import os;print(os.getenv("PYTHONPATH"))'
-          python tk_min.py
+          sudo dtruss python tk_min.py
