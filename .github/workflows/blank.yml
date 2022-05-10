@@ -33,6 +33,11 @@ jobs:
           set
       - name: find
         run:  |
-          find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '_tkinter.so'
+          find /Users/runner/hostedtoolcache/Python/3.7.13/ -name '*.so'
       - name: Run tk script (closes itself after 5 seconds)
-        run: python tk_min.py
+        run: |
+          python -c 'import os;print(os.getenv("LD_LIBRARY_PATH"))'
+          python -c 'import os;print(os.getenv("RUN_LD_PATH"))'
+          python -c 'import os;print(os.getenv("PYTHONHOME"))'
+          python -c 'import os;print(os.getenv("PYTHONPATH"))'
+          sudo strace python tk_min.py
