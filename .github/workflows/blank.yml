@@ -42,4 +42,4 @@ jobs:
           python -c 'import os;print(os.getenv("RUN_LD_PATH"))'
           python -c 'import os;print(os.getenv("PYTHONHOME"))'
           python -c 'import os;print(os.getenv("PYTHONPATH"))'
-          sudo strace python tk_min.py
+          python tk_min.py
