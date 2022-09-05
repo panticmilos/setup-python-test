@@ -2,6 +2,9 @@
 name = "titanic_ml"
 description = "titanic_ml example package"
 version = "0.1.0"
+authors = [
+    "milos <sebastien@eustace.io>",
+]
 
 [tool.poetry.dependencies]
 requests = "^2.13.0"
