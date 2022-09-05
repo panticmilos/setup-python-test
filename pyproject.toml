@@ -2,10 +2,10 @@
 name = "titanic_ml"
 description = "titanic_ml example package"
 version = "0.1.0"
-dependencies = [
-    "pyspark[ml]",
-    "sklearn"
-]
+
+[tool.poetry.dependencies]
+requests = "^2.13.0"
+scikit-learn = "^1.1.2"
 
 [tool.black]
 line-length = 88
