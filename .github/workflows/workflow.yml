@@ -28,9 +28,6 @@ jobs:
     - name: npm ci
       run: npm ci
 
-    - name: Lint
-      run: npm run format-check
-
     - uses: actions/checkout@v3
     - name: Install poetry
       run: pipx install poetry==1.1.15
@@ -40,5 +37,4 @@ jobs:
         python-version: '3.9'
         cache: 'poetry'
     - run: poetry install
-    - run: poetry run pytest
 
